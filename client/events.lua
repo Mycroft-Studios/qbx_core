@@ -8,13 +8,9 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
         NetworkSetFriendlyFireOption(true)
     end
 
-    local template = GetConvar('qbx:motdTemplate', '')
-    local args = json.decode(GetConvar('qbx:motdArgs', '[]'))
-    if template ~= '' and #args > 0 then
-        exports.chat:addMessage({
-            template = template,
-            args = args,
-        })
+    local motd = GetConvar('qbx:motd', '')
+    if motd ~= '' then
+        exports.chat:addMessage({ template = motd })
     end
 end)
 
