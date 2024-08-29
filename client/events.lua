@@ -7,6 +7,15 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
         SetCanAttackFriendly(cache.ped, true, false)
         NetworkSetFriendlyFireOption(true)
     end
+
+    local template = GetConvar('qbx:motdTemplate', '')
+    local args = json.decode(GetConvar('qbx:motdArgs', '[]'))
+    if template ~= '' and #args > 0 then
+        exports.chat:addMessage({
+            template = template,
+            args = args,
+        })
+    end
 end)
 
 ---@param val PlayerData
