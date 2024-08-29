@@ -33,6 +33,19 @@ QBX.Player_Buckets = {}
 QBX.Entity_Buckets = {}
 QBX.UsableItems = {}
 
+if GetConvar('qbx:acknowledge', 'false') ~= 'true' then
+    local welcomeMessage = [[^4
+Welcome to ^3Qbox^4!
+To learn more, please check out the documentation at ^5https://docs.qbox.re/^4.
+To turn this message off, add ^3set qbx:acknowledge true^4 to your cfg files.
+^7]]
+
+    CreateThread(function()
+        Wait(250)
+        print(welcomeMessage)
+    end)
+end
+
 ---@return table<string, Vehicle>
 function GetVehiclesByName()
     return QBX.Shared.Vehicles
