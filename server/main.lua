@@ -41,7 +41,7 @@ To turn this message off, add ^3set qbx:acknowledge true^4 to your cfg files.
 ^7]]
 
     CreateThread(function()
-        Wait(250)
+        Wait(500)
         print(welcomeMessage)
     end)
 end
